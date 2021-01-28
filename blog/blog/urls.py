@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from api.models import BlogpostResource
+
+blogpost_resource = BlogpostResource()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blogs/', include('blogs.urls'))
+    path('blogs/', include('blogs.urls')),
+    path('api/', include(BlogpostResource().urls))
 ]

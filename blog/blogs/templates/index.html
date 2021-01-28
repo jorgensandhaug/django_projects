@@ -1,3 +1,9 @@
-<h1>Hei</h1>
+{% extends 'base.html' %}
 
-<h1> {{ test_key }} </h1>
+{% block content %}
+
+    {% for blogpost in blogposts %}
+        <div class="col-sm"><a href="{% url 'blogs:detail' blogpost.id %}"> {{blogpost.title}} </a> <br> {{blogpost.publisher}}<br> {{blogpost.date}} </div>
+    {% endfor %}
+
+{% endblock %}
