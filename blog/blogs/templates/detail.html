@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
 
     <h1> {{ blogpost.title }}</h1>
@@ -8,5 +10,17 @@
     </div>
 
     <p>Published by: {{ blogpost.publisher }} at: {{ blogpost.date }}</p>
+
+    <br><h2> Comments: </h2><br><br>    
+
+    <div class="container">
+        {% for comment in comments %}
+        <div class="comment" style="border: 3px solid black; border-radius: 15px; padding: 10px; display: inline-block;">
+            <p class="fw-bold">{{comment.publisher.name}}</p>
+            <p>{{comment.content}}</p>
+        </div>
+            
+        {% endfor %}
+    </div>
     
 {% endblock %}
